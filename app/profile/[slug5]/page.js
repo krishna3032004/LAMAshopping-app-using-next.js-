@@ -15,7 +15,7 @@ const MODE = {
     notification: "Notification",
     profile: "Profile Information"
 }
-const page = ({ params }) => {
+const Page = ({ params }) => {
     const { data: session, status } = useSession()
     const [gender, setGender] = useState("");
     const [info, setinfo] = useState("")
@@ -399,4 +399,4 @@ const page = ({ params }) => {
     )
 }
 
-export default page
+export default Page

@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { useSession } from 'next-auth/react'
 
 
-const page = ({ params }) => {
+const Page = ({ params }) => {
     const [order, setorder] = useState({})
     const [error, setError] = useState(null);
     const { data: session, status } = useSession()
@@ -65,4 +65,4 @@ const page = ({ params }) => {
     )
 }
 
-export default page
+export default Page

@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 
-const page = ({ params }) => {
+const Page = ({ params }) => {
     const [order, setorder] = useState({})
     const { data: session, status } = useSession()
      const [isLoading, setIsLoading] = useState(true);
@@ -76,4 +76,4 @@ const page = ({ params }) => {
     )
 }
 
-export default page
+export default Page

@@ -9,7 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { Bounce } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
-const page = ({ params }) => {
+const Page = ({ params }) => {
   const { data: session, status } = useSession()
   let [products, setproducts] = useState([])
   const [count, setcount] = useState(12)
@@ -393,4 +393,4 @@ const page = ({ params }) => {
   )
 }
 
-export default page
+export default Page

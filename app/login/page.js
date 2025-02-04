@@ -18,7 +18,7 @@ const MODE = {
     RESET_PASSWORD: "RESET_PASSWORD"
 }
 
-const page = () => {
+const Page = () => {
     const [mode, setmode] = useState("LOGIN")
     const [mode2, setmode2] = useState("notconfirm")
     const { data: session, status } = useSession()
@@ -294,7 +294,7 @@ const page = () => {
                                 <div className='text-red-600'>{message}</div>
                                 <div className='text-sm underline cursor-pointer' onClick={() => setmode("RESET_PASSWORD")} >Forgot Password?</div>
                                 <button onClick={() => getdatalogin()} className='text-white text-base rounded-lg w-60 py-[1vh] bg-red-400'>Login</button>
-                                <div onClick={() => setmode("REGISTER")} className='text-sm underline cursor-pointer'>Don't have an account?</div>
+                                <div onClick={() => setmode("REGISTER")} className='text-sm underline cursor-pointer'>{"Don't have an account?"}</div>
                             </div>
                         </div>
                     }
@@ -418,4 +418,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page

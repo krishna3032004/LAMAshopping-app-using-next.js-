@@ -13,7 +13,7 @@ import { Bounce } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
 
-const page = ({ params }) => {
+const Page = ({ params }) => {
     // const [customerproduc, setcustomerproduc] = useState({})
     const [products, setproducts] = useState({})
     const [checkout, setcheckout] = useState({})
@@ -484,4 +484,4 @@ const page = ({ params }) => {
     )
 }
 
-export default page
+export default Page

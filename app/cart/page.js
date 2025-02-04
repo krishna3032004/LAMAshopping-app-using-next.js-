@@ -13,7 +13,7 @@ import { Bounce } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
 
-const page = () => {
+const Page = () => {
     const [cart, setcart] = useState([])
     const [products, setproducts] = useState([])
     const [form, setform] = useState({
@@ -652,4 +652,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page
