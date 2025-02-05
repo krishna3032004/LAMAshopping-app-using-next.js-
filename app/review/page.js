@@ -2,10 +2,11 @@
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
+import { Suspense } from "react";
 
-export default function ReviewForm() {
+function ReviewForm() {
     const searchParams = useSearchParams();
-  let productId
+  let productId= searchParams.get("productId");
   const router = useRouter()
   const [stars, setStars] = useState(0);
   const [review, setReview] = useState("");
@@ -14,9 +15,6 @@ export default function ReviewForm() {
   const [photo, setPhoto] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    productId = searchParams.get("productId");
-  }, [searchParams]);
 
 
   const handleSubmit = async (e) => {
@@ -156,5 +154,13 @@ export default function ReviewForm() {
       </form>
     </div>}
     </>
+  );
+}
+
+export default function PageWrapper() {
+  return (
+    <Suspense fallback={<div className='flex justify-center items-center pt-[38vh] pb-[47vh]'><video className='max-w-[5vh]' src="https://cdnl.iconscout.com/lottie/free/preview/free-loading-animation-download-in-lottie-json-gif-static-svg-file-formats--refresh-reload-processing-load-user-interface-animations-4282536.mp4" autoPlay muted loop="loop" type="video/mp4"></video></div>}>
+      <ReviewForm />
+    </Suspense>
   );
 }
