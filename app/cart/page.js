@@ -16,8 +16,8 @@ import 'react-toastify/dist/ReactToastify.css';
 const Page = () => {
     const [cart, setcart] = useState([])
     const [products, setproducts] = useState([])
-    
-        const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+
+    const [isButtonDisabled, setIsButtonDisabled] = useState(false);
     const [form, setform] = useState({
         name: "",
         phone: "",
@@ -61,7 +61,7 @@ const Page = () => {
             setIsLoading(true);
             return; // Stop execution until session is loaded
         }
-    
+
         if (session) {
             getcart();
             isFormComplete = false;
@@ -154,7 +154,7 @@ const Page = () => {
         product = products.filter(product => product._id !== productid);
         car = cart.filter(item => item.product !== productid);
         setproducts(product)
-        setcart(car) 
+        setcart(car)
 
         toast.success('Removed from your Cart!', {
             position: "bottom-right",
@@ -244,49 +244,63 @@ const Page = () => {
     const pay = async (amount) => {
         // if (session) {
         // if (paymentform.name && paymentform.message) {
-            try {
-                let amount2 = Number.parseInt(amount);
-                let a = await initiatepayment(amount2, session.user.email, form);
-                setIsLoading(true);
-        
-                let orderID = a.id;
-                var options = {
-                    "key_id": process.env.NEXT_PUBLIC_KEY_ID, // Razorpay Key ID
-                    "amount": amount2, // Convert amount to paisa (INR subunit)
-                    "currency": "INR",
-                    "name": "Get Me A Coffee", // Business name
-                    "description": "Test Transaction",
-                    "image": "https://example.com/your_logo",
-                    "order_id": orderID, // Order ID from backend response
-                    "callback_url": `${process.env.NEXT_PUBLIC_URL2}/api/razorpay`,
-                    "prefill": { 
-                        "name": session.user.name, // Use actual session user name
-                        "email": session.user.email,
-                        "contact": "9000090000"
-                    },
-                    "notes": {
-                        "address": "Razorpay Corporate Office"
-                    },
-                    "theme": {
-                        "color": "#3399cc"
-                    },
-                    "modal": {
-                        "ondismiss": function () {
-                            console.log("Payment cancelled by user!");
-                            alert("Payment was cancelled! Redirecting to homepage...");
-                            window.location.href = "/"; // Redirect user to home page
-                        }
+        try {
+            let amount2 = Number.parseInt(amount);
+            let a = await initiatepayment(amount2, session.user.email, form);
+            setIsLoading(true);
+
+            let orderID = a.id;
+            var options = {
+                "key_id": process.env.NEXT_PUBLIC_KEY_ID, // Razorpay Key ID
+                "amount": amount2, // Convert amount to paisa (INR subunit)
+                "currency": "INR",
+                "name": "Get Me A Coffee", // Business name
+                "description": "Test Transaction",
+                "image": "https://example.com/your_logo",
+                "order_id": orderID, // Order ID from backend response
+                "callback_url": `${process.env.NEXT_PUBLIC_URL2}/api/razorpay`,
+                "prefill": {
+                    "name": session.user.name, // Use actual session user name
+                    "email": session.user.email,
+                    "contact": "9000090000"
+                },
+                "notes": {
+                    "address": "Razorpay Corporate Office"
+                },
+                "theme": {
+                    "color": "#3399cc"
+                },
+                "modal": {
+                    "ondismiss": function () {
+                        console.log("Payment cancelled by user!");
+                        toast.warning('Payment was cancelled! Try again', {
+                            position: "bottom-right",
+                            autoClose: 3000,
+                            hideProgressBar: true,
+                            stacked: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                            theme: "colored",
+                            transition: Bounce,
+                        });
+                        setTimeout(() => {
+                            window.location.href = `/product/${params.slug1}`; // Redirect user to home page
+
+                        }, 2000);
                     }
-                };
-        
-                var rzp1 = new window.Razorpay(options);
-        
-                rzp1.open();
-        
-            } catch (error) {
-                console.error("Error in payment:", error);
-                alert("Something went wrong with the payment. Please try again.");
-            }
+                }
+            };
+
+            var rzp1 = new window.Razorpay(options);
+
+            rzp1.open();
+
+        } catch (error) {
+            console.error("Error in payment:", error);
+            alert("Something went wrong with the payment. Please try again.");
+        }
 
 
 
@@ -399,14 +413,13 @@ const Page = () => {
                                     Place Order & Pay
                                 </button> */}
                                 <button
-                                    onClick={async() => {
+                                    onClick={async () => {
                                         setIsButtonDisabled(true);
                                         pay(totalprice)
                                     }}
                                     disabled={!isFormComplete || isButtonDisabled}
-                                    className={`w-full py-2 text-white rounded-md shadow focus:outline-none focus:ring-2 focus:ring-indigo-500 ${
-                                        isFormComplete && !isButtonDisabled ? "bg-indigo-600 hover:bg-indigo-700" : "bg-gray-400 cursor-not-allowed"
-                                    }`}
+                                    className={`w-full py-2 text-white rounded-md shadow focus:outline-none focus:ring-2 focus:ring-indigo-500 ${isFormComplete && !isButtonDisabled ? "bg-indigo-600 hover:bg-indigo-700" : "bg-gray-400 cursor-not-allowed"
+                                        }`}
                                 >
                                     Place Order & Pay
                                 </button>

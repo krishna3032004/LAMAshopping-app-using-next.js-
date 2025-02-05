@@ -186,7 +186,10 @@ const Page = ({ params }) => {
                                 theme: "colored",
                                 transition: Bounce,
                               });
-                        window.location.href = `/product/${params.slug1}`; // Redirect user to home page
+                              setTimeout(() => {
+                                  window.location.href = `/product/${params.slug1}`; // Redirect user to home page
+                                
+                              }, 2000);
                     }
                 }
             };
