@@ -169,11 +169,12 @@ const Page = ({ params }) => {
   }
   const buyit = async () => {
     toast.dismiss();
+    setIsLoading(true)
     if (session) {
       let a = await putcheckout(session.user.email, params.slug1, count)
 
       if (a) {
-
+        
         router.push(`${params.slug1}/checkout`)
       }
     } else {
