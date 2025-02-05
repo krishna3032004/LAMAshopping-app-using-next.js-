@@ -3,7 +3,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { fetchCart, fetchProductbyid, initiatepayment } from '@/actions/useraction'
 import { useSession } from 'next-auth/react'
-import { useRouter, useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import { removeproductfromcart } from '@/actions/useraction'
 import { changequantityfromcart } from '@/actions/useraction'
 import Link from 'next/link'
@@ -34,7 +34,6 @@ const Page = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [totalprice, settotalprice] = useState()
     const [items, setitems] = useState()
-    const searchparam = useSearchParams()
     let isFormComplete = true
     // useEffect(() => {
     //     if (status === "loading") {
@@ -72,22 +71,22 @@ const Page = () => {
         }
     }, [status, session]);
 
-    useEffect(() => {
-        if (searchparam.get("paymentdone") == "true") {
-            toast.success('Payment done Successfully!', {
-                position: "bottom-right",
-                autoClose: 3000,
-                hideProgressBar: true,
-                stacked: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-            });
-        }
+    // useEffect(() => {
+    //     if (searchparam.get("paymentdone") == "true") {
+    //         toast.success('Payment done Successfully!', {
+    //             position: "bottom-right",
+    //             autoClose: 3000,
+    //             hideProgressBar: true,
+    //             stacked: false,
+    //             closeOnClick: true,
+    //             pauseOnHover: true,
+    //             draggable: true,
+    //             progress: undefined,
+    //             theme: "colored",
+    //         });
+    //     }
 
-    }, [])
+    // }, [])
 
 
 
