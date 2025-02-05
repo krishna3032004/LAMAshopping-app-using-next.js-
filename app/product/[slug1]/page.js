@@ -287,7 +287,7 @@ const Page = ({ params }) => {
 
                   <div onClick={() => buyit()} className='cursor-pointer border-[1.5px] w-1/2 text-sm border-red-300 bg-red-500 text-white px-6 py-4'>Buy Now</div>
                   {!cart && <div onClick={() => { updatecart() }} className='cursor-pointer w-1/2 border-l-0   border-[1.5px] text-sm border-red-300 text-red-300 px-6 py-4'>Add To Cart</div>}
-                  {cart && <div onClick={() => reloadPage('/cart')} className='cursor-pointer w-1/2  border-l-0  border-[1.5px] text-sm  border-red-300 text-white px-6 py-4'>Go To Cart</div>}
+                  {cart && <div onClick={() => reloadPage('/cart')} className='cursor-pointer w-1/2  border-l-0  border-[1.5px] text-sm  border-red-300 text-red-300 px-6 py-4'>Go To Cart</div>}
                   {/* {cart ? <div onClick={() => { updatecart() }} className='cursor-pointer rounded-full border-[1.5px] text-sm border-red-300 text-red-300 px-6 py-3'>Go To Cart</div>
                   :
                   <Link href={"/cart"}><div className='cursor-pointer rounded-full border-[1.5px] text-sm border-red-300 text-red-300 px-6 py-3'>Add To Cart</div></Link>} */}

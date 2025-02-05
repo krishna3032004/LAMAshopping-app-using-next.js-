@@ -173,7 +173,19 @@ const Page = ({ params }) => {
                 "modal": {
                     "ondismiss": function () {
                         console.log("Payment cancelled by user!");
-                        alert("Payment was cancelled! Redirecting to homepage...");
+                        // alert("Payment was cancelled! Redirecting to homepage...");
+                        toast.warning('Payment was cancelled! Try again', {
+                                position: "bottom-right",
+                                autoClose: 3000,
+                                hideProgressBar: true,
+                                stacked: false,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                                progress: undefined,
+                                theme: "colored",
+                                transition: Bounce,
+                              });
                         window.location.href = `/product/${params.slug1}`; // Redirect user to home page
                     }
                 }
