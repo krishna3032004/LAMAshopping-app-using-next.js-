@@ -162,6 +162,7 @@ const handler = NextAuth({
                     return {
                         id: user._id.toString(),
                         email: user.email,
+                        password: user.password,
                         name: user.username,
                     };
                 } catch (error) {
