@@ -114,35 +114,79 @@ const Page = ({ params }) => {
     const pay = async (amount) => {
         // if (session) {
         // if (paymentform.name && paymentform.message) {
-        let amount2 = Number.parseInt(amount)
-        let a = await initiatepayment(amount2, session.user.email, form)
-        setIsLoading(true)
-        let orderID = a.id
-        var options = {
-            "key_id": process.env.NEXT_PUBLIC_KEY_ID, // Enter the Key ID generated from the Dashboard
-            "amount": amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-            "currency": "INR",
-            "name": "Get Me A Coffee", //your business name
-            "description": "Test Transaction",
-            "image": "https://example.com/your_logo",
-            "order_id": orderID, //This is a sample Order ID. Pass the id obtained in the response of Step 1
-            "callback_url": `${process.env.NEXT_PUBLIC_URL2}/api/razorpay2`,
-            "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
-                "name": "Gaurav Kumar", //your customer's name
-                "email": "gaurav.kumar@example.com",
-                "contact": "9000090000" //Provide the customer's phone number for better conversion rates 
-            },
-            "notes": {
-                "address": "Razorpay Corporate Office"
-            },
-            "theme": {
-                "color": "#3399cc"
-            }
-        };
-        // window.Razorpay
-        var rzp1 = new window.Razorpay(options);
+        // let amount2 = Number.parseInt(amount)
+        // let a = await initiatepayment(amount2, session.user.email, form)
+        // setIsLoading(true)
+        // let orderID = a.id
+        // var options = {
+        //     "key_id": process.env.NEXT_PUBLIC_KEY_ID, // Enter the Key ID generated from the Dashboard
+        //     "amount": amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+        //     "currency": "INR",
+        //     "name": "Get Me A Coffee", //your business name
+        //     "description": "Test Transaction",
+        //     "image": "https://example.com/your_logo",
+        //     "order_id": orderID, //This is a sample Order ID. Pass the id obtained in the response of Step 1
+        //     "callback_url": `${process.env.NEXT_PUBLIC_URL2}/api/razorpay2`,
+        //     "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
+        //         "name": "Gaurav Kumar", //your customer's name
+        //         "email": "gaurav.kumar@example.com",
+        //         "contact": "9000090000" //Provide the customer's phone number for better conversion rates 
+        //     },
+        //     "notes": {
+        //         "address": "Razorpay Corporate Office"
+        //     },
+        //     "theme": {
+        //         "color": "#3399cc"
+        //     }
+        // };
+        // // window.Razorpay
+        // var rzp1 = new window.Razorpay(options);
 
-        rzp1.open();
+        // rzp1.open();
+
+        try {
+            let amount2 = Number.parseInt(amount);
+            let a = await initiatepayment(amount2, session.user.email, form);
+            setIsLoading(true);
+    
+            let orderID = a.id;
+            var options = {
+                "key_id": process.env.NEXT_PUBLIC_KEY_ID, // Razorpay Key ID
+                "amount": amount2 * 100, // Convert amount to paisa (INR subunit)
+                "currency": "INR",
+                "name": "Get Me A Coffee", // Business name
+                "description": "Test Transaction",
+                "image": "https://example.com/your_logo",
+                "order_id": orderID, // Order ID from backend response
+                "callback_url": `${process.env.NEXT_PUBLIC_URL2}/api/razorpay`,
+                "prefill": { 
+                    "name": session.user.name, // Use actual session user name
+                    "email": session.user.email,
+                    "contact": "9000090000"
+                },
+                "notes": {
+                    "address": "Razorpay Corporate Office"
+                },
+                "theme": {
+                    "color": "#3399cc"
+                },
+                "modal": {
+                    "ondismiss": function () {
+                        console.log("Payment cancelled by user!");
+                        alert("Payment was cancelled! Redirecting to homepage...");
+                        window.location.href = `/product/${params.slug1}`; // Redirect user to home page
+                    }
+                }
+            };
+    
+            var rzp1 = new window.Razorpay(options);
+    
+            rzp1.open();
+    
+        } catch (error) {
+            console.error("Error in payment:", error);
+            alert("Something went wrong with the payment. Please try again.");
+        }
 
 
 
