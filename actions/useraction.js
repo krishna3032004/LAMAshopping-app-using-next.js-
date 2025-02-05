@@ -28,7 +28,7 @@ export const initiatepayment = async (amount, email, form) => {
     return x;
 
 
-    
+
 }
 
 export const getproducts = async (slug) => {
@@ -262,7 +262,11 @@ export const updatewishlist = async (email, productid, color) => {
     if (color === "gray") {
         a.wishlist.push(productid);
     } else {
-        a.wishlist = a.wishlist.filter(item => !item.equals(productid));
+        for (let value of a.wishlist) {
+            if (value.toString() === productid) {
+                a.wishlist = a.wishlist.filter(item => !item.equals(value));
+            }
+        }
     }
     await a.save();
 };
@@ -675,7 +679,7 @@ export const resetPassword = async (email) => {
 export const sendotpforforgoting = async (email) => {
 
     verificationToken = crypto.randomBytes(3).toString("hex");
-    
+
 
     const transporter = nodemailer.createTransport({
         service: "Gmail",
@@ -782,10 +786,10 @@ export const sendReviewEmail = async (userEmail, checkout) => {
 
 
 };
-export const saveReview = async (form)=>{
+export const saveReview = async (form) => {
     await connectDB()
-    let a = await Product.findOne({_id: form.productId})
-    a.review.push({name:form.namereviewer,message:form.review,star:form.stars,starmess:form.starmess})
+    let a = await Product.findOne({ _id: form.productId })
+    a.review.push({ name: form.namereviewer, message: form.review, star: form.stars, starmess: form.starmess })
     await a.save()
 
     // let order = a.toObject({ flattenObjectIds: true })
