@@ -157,7 +157,7 @@ const handler = NextAuth({
                     const isPasswordValid = credentials.password === user.password;
 
                     if (!isPasswordValid) {
-                        console.error("Invalid password");
+                        console.error("Invalid passwordddd");
                         throw new Error("Invalid Password");
                     }
 
