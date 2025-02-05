@@ -137,33 +137,37 @@ const handler = NextAuth({
         CredentialsProvider({
             name: "Credentials",
             credentials: {
-                email: { label: "Email", type: "text", required: true },
-                password: { label: "Password", type: "password", required: true },
+                email: { label: "Email", type: "text" },
+                password: { label: "Password", type: "password" },
             },
             async authorize(credentials) {
                 try {
-                    await connectDB();
-                    const user = await User.findOne({ email: credentials.email });
+                    // Fetch user from the database
+                    const user = await fetchUser(credentials.email); // Ensure fetchUser is implemented correctly
 
+                    // Check if the user exists
                     if (!user) {
                         console.error("User not found");
+                        // return
                         throw new Error("Invalid Email");
+                        // return user
                     }
 
-                    // ✅ Use bcrypt to compare passwords
-                    // const isPasswordValid = await bcrypt.compare(credentials.password, user.password);
-                    const isPasswordValid = credentials.password === user.password; 
+                    // Validate the password
+                    const isPasswordValid = credentials.password === user.password;
 
                     if (!isPasswordValid) {
                         console.error("Invalid password");
                         throw new Error("Invalid Password");
                     }
 
+                    // Return a safe user object
                     return {
-                        id: user._id.toString(),
+                        id: user._id.toString(), // Ensure this is a unique identifier
                         email: user.email,
                         password: user.password,
                         name: user.username,
+
                     };
                 } catch (error) {
                     console.error("Authorize error:", error);
@@ -171,6 +175,43 @@ const handler = NextAuth({
                 }
             },
         }),
+        // CredentialsProvider({
+        //     name: "Credentials",
+        //     credentials: {
+        //         email: { label: "Email", type: "text", required: true },
+        //         password: { label: "Password", type: "password", required: true },
+        //     },
+        //     async authorize(credentials) {
+        //         try {
+        //             await connectDB();
+        //             const user = await User.findOne({ email: credentials.email });
+
+        //             if (!user) {
+        //                 console.error("User not found");
+        //                 throw new Error("Invalid Email");
+        //             }
+
+        //             // ✅ Use bcrypt to compare passwords
+        //             // const isPasswordValid = await bcrypt.compare(credentials.password, user.password);
+        //             const isPasswordValid = credentials.password === user.password;
+
+        //             if (!isPasswordValid) {
+        //                 console.error("Invalid password");
+        //                 throw new Error("Invalid Password");
+        //             }
+
+        //             return {
+        //                 id: user._id.toString(),
+        //                 email: user.email,
+        //                 password: user.password,
+        //                 name: user.username,
+        //             };
+        //         } catch (error) {
+        //             console.error("Authorize error:", error);
+        //             throw new Error("Invalid email or password");
+        //         }
+        //     },
+        // }),
     ],
     callbacks: {
         async signIn({ user, account, profile }) {
