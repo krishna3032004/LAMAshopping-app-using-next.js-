@@ -170,7 +170,7 @@ const handler = NextAuth({
 
                     };
                 } catch (error) {
-                    console.error("Authorize error:", error);
+                    console.error("Authorize errorrrrr:", error);
                     throw new Error("Invalid email or password");
                 }
             },
