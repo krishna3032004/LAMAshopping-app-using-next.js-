@@ -106,9 +106,22 @@ const fullConversation = ecommerceContext + "\n" + conversationHistory + "\n" + 
     {
       id: 3,
       title: "sihdk",
-      img: "https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/50ab47d8cd7d9ce1.jpg?q=20",
+      img: "https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/21c72584989b09a9.jpg?q=20",
+    },
+    {
+      id: 4,
+      title: "sihdk",
+      img: "https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/df71df999c4d6023.jpg?q=20",
     }
   ]
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+        setcurrent((prev) => (prev === 4 ? 0 : prev + 1)); // Loop from 0 to 4
+    }, 3000); // Change slide every 3 seconds
+
+    return () => clearInterval(interval); // Cleanup interval on unmount
+}, []);
 
   useEffect(() => {
     if (status === "loading") {
