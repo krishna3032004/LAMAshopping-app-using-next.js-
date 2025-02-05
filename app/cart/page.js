@@ -16,6 +16,8 @@ import 'react-toastify/dist/ReactToastify.css';
 const Page = () => {
     const [cart, setcart] = useState([])
     const [products, setproducts] = useState([])
+    
+        const [isButtonDisabled, setIsButtonDisabled] = useState(false);
     const [form, setform] = useState({
         name: "",
         phone: "",
@@ -374,11 +376,22 @@ const Page = () => {
                                 </div>
 
                                 {/* Continue Button */}
-                                <button
+                                {/* <button
                                     onClick={() => pay(totalprice)}
                                     disabled={!isFormComplete}
                                     className={`w-full py-2 text-white rounded-md shadow focus:outline-none focus:ring-2 focus:ring-indigo-500 ${isFormComplete ? "bg-indigo-600 hover:bg-indigo-700" : "bg-gray-400 cursor-not-allowed"
                                         }`}
+                                >
+                                    Place Order & Pay
+                                </button> */}
+                                <button
+                                    onClick={async() => {await pay(totalprice)
+                                        setIsButtonDisabled(true);
+                                    }}
+                                    disabled={!isFormComplete || isButtonDisabled}
+                                    className={`w-full py-2 text-white rounded-md shadow focus:outline-none focus:ring-2 focus:ring-indigo-500 ${
+                                        isFormComplete && !isButtonDisabled ? "bg-indigo-600 hover:bg-indigo-700" : "bg-gray-400 cursor-not-allowed"
+                                    }`}
                                 >
                                     Place Order & Pay
                                 </button>

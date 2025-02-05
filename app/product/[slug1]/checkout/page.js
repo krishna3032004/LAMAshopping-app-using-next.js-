@@ -237,7 +237,7 @@ const Page = ({ params }) => {
 
                                 {/* Continue Button */}
                                 <button
-                                    onClick={() => {pay(totalprice)
+                                    onClick={async() => {await pay(totalprice)
                                         setIsButtonDisabled(true);
                                     }}
                                     disabled={!isFormComplete || isButtonDisabled}
