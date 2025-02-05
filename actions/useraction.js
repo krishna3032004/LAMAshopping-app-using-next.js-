@@ -42,6 +42,9 @@ export const getproducts = async (slug) => {
         if (value === "watch" || value === "watches" || value === "smartwatch" || value === "smartwatches" || value === "analogwatches" || value === "analogwatch") {
             value = "watch"
         }
+        if (value === "bag" || value === "bags" ) {
+            value = "bag"
+        }
         if (value === "featured") {
             a = await Product.find({ featured: true });
 
