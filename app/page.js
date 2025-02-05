@@ -101,7 +101,7 @@ const fullConversation = ecommerceContext + "\n" + conversationHistory + "\n" + 
     {
       id: 2,
       title: "aig",
-      img: "https://images-eu.ssl-images-amazon.com/images/G/31/img24/Beauty/GW/Jupiter/KSD/PEA/Updated/Makeupfg._CB562159640_.jpg",
+      img: "https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/c928b14a5cddaf18.jpg?q=20",
     },
     {
       id: 3,
@@ -117,7 +117,7 @@ const fullConversation = ecommerceContext + "\n" + conversationHistory + "\n" + 
 
   useEffect(() => {
     const interval = setInterval(() => {
-        setcurrent((prev) => (prev === 4 ? 0 : prev + 1)); // Loop from 0 to 4
+        setcurrent((prev) => (prev === 3 ? 0 : prev + 1)); // Loop from 0 to 4
     }, 3000); // Change slide every 3 seconds
 
     return () => clearInterval(interval); // Cleanup interval on unmount
