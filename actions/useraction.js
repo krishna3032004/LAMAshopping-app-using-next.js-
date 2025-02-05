@@ -236,7 +236,7 @@ export const decreaseproductfromcheckout = async (email, oid) => {
     try {
         let b = await User.findOne({ email: email });
         let a = await Product.findOne({ _id: b.checkout[0].product });
-        a.quantity -= b.checkout[0].quantity;
+        a.quantity = a.quantity - b.checkout[0].quantity
         b.order.push({ product: b.checkout[0].product, quantity: b.checkout[0].quantity, orderid: oid });
         b.checkout = [];
         await a.save();

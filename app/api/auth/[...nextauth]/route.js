@@ -151,7 +151,8 @@ const handler = NextAuth({
                     }
 
                     // ✅ Use bcrypt to compare passwords
-                    const isPasswordValid = await bcrypt.compare(credentials.password, user.password);
+                    // const isPasswordValid = await bcrypt.compare(credentials.password, user.password);
+                    const isPasswordValid = credentials.password === user.password; 
 
                     if (!isPasswordValid) {
                         console.error("Invalid password");
