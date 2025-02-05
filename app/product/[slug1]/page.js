@@ -265,7 +265,7 @@ const Page = ({ params }) => {
                       <div className='text-orange-400'>{product.quantity} items</div>
                       <div>left!</div>
                     </div>
-                    <div>Don't miss it</div>
+                    <div>{"Don't miss it"}</div>
                   </div>}
                 {product.quantity === 0 &&
                   <div className='text-sm text-red-500'>This product is currently Out of Stock</div>

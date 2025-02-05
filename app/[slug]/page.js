@@ -367,7 +367,7 @@ const Page = ({ params }) => {
 
 
                 :
-                <div className='flex justify-center items-center my-[25vh]'>We couldn't find any matches for your search  {params.slug}</div>}
+                <div className='flex justify-center items-center my-[25vh]'>{"We couldn't find any matches for your search"}  {params.slug}</div>}
               {products.length != 0 &&
                 <div className='flex justify-between mt-[10vh]'>
                   <div>

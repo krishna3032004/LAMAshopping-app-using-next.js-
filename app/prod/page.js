@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import { initiate } from '@/actions/useraction'
-const page = () => {
+const Page = () => {
     const [form, setform] = useState([])
     const [showFinished, setshowFinished] = useState(false)
 
@@ -31,4 +31,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

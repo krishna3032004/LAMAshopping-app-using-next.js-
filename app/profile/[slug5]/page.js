@@ -292,13 +292,13 @@ const Page = ({ params }) => {
                                 <div className='mx-[5vw] mt-[15vh]'>
                                     <div className='font-semibold mb-[2vh]'>FAQs</div>
                                     <div className='font-semibold text-xs sm:text-sm'>What happens when I update my email address?</div>
-                                    <div className=' pt-[3vh] text-xs sm:text-sm '>Your login email id changes, likewise. You'll receive all your account related communication on your updated email address.</div>
+                                    <div className=' pt-[3vh] text-xs sm:text-sm '>{"Your login email id changes, likewise. You'll receive all your account related communication on your updated email address."}</div>
                                     <div className='font-semibold pt-[3vh] text-xs sm:text-sm '>When will my Flipkart account be updated with the new email address?</div>
                                     <div className=' pt-[3vh] text-xs sm:text-sm '>It happens as soon as you confirm the verification code sent to your email and save the changes.</div>
                                     <div className='font-semibold pt-[3vh] text-xs sm:text-sm '>What happens to my existing Flipkart account when I update my email address?</div>
-                                    <div className=' pt-[3vh] text-xs sm:text-sm '>Updating your email address doesn't invalidate your account. Your account remains fully functional. You'll continue seeing your Order history, saved information and personal details.</div>
+                                    <div className=' pt-[3vh] text-xs sm:text-sm '>{"Updating your email address doesn't invalidate your account. Your account remains fully functional. You'll continue seeing your Order history, saved information and personal details."}</div>
                                     <div className='font-semibold pt-[3vh] text-xs sm:text-sm '>Does my Seller account get affected when I update my email address?</div>
-                                    <div className=' pt-[3vh] text-xs sm:text-sm '>Flipkart has a 'single sign-on' policy. Any changes will reflect in your Seller account also.</div>
+                                    <div className=' pt-[3vh] text-xs sm:text-sm '>{"Flipkart has a 'single sign-on' policy. Any changes will reflect in your Seller account also."}</div>
                                 </div>
                                 <div>
                                     <img width="100%" src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/myProfileFooter_4e9fe2.png" alt="" />
