@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 
 export default function ReviewForm() {
     const searchParams = useSearchParams();
-  const productId = searchParams.get("productId");
+  let productId
   const router = useRouter()
   const [stars, setStars] = useState(0);
   const [review, setReview] = useState("");
@@ -13,6 +13,11 @@ export default function ReviewForm() {
   const [starmessage, setstarmessage] = useState("")
   const [photo, setPhoto] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    productId = searchParams.get("productId");
+  }, [searchParams]);
+
 
   const handleSubmit = async (e) => {
     setIsLoading(true)
