@@ -385,8 +385,9 @@ const Page = () => {
                                     Place Order & Pay
                                 </button> */}
                                 <button
-                                    onClick={async() => {await pay(totalprice)
+                                    onClick={async() => {
                                         setIsButtonDisabled(true);
+                                        await pay(totalprice)
                                     }}
                                     disabled={!isFormComplete || isButtonDisabled}
                                     className={`w-full py-2 text-white rounded-md shadow focus:outline-none focus:ring-2 focus:ring-indigo-500 ${
