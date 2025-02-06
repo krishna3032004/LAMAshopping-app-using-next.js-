@@ -1,21 +1,22 @@
-'use client'
+"use client"; // For Next.js App Router
+
 import { useEffect } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation"; // Use "next/router" for Pages Router
 
 const ScrollHandler = () => {
     const router = useRouter();
 
     useEffect(() => {
-        if (typeof window === "undefined") return; // Prevent running on the server
+        if (typeof window === "undefined") return; // Ensure it only runs in the browser
 
         const handleRouteChange = () => {
-            window.scrollTo(0, 0); // Always scroll to top when a new page is loaded
+            window.scrollTo(0, 0); // Scroll to top when navigating
         };
 
-        router.events.on("routeChangeComplete", handleRouteChange);
+        router.events?.on("routeChangeComplete", handleRouteChange);
 
         return () => {
-            router.events.off("routeChangeComplete", handleRouteChange);
+            router.events?.off("routeChangeComplete", handleRouteChange);
         };
     }, [router]);
 
