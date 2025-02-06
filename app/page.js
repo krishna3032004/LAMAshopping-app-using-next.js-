@@ -23,6 +23,7 @@ export default function Home() {
   const [Loading, setLoading] = useState(false);
   const [showText, setShowText] = useState(true);
   const [reverseAnimation, setReverseAnimation] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(true);
 
   useEffect(() => {
     // Start hiding animation after 3 seconds
@@ -115,12 +116,26 @@ const fullConversation = ecommerceContext + "\n" + conversationHistory + "\n" + 
     }
   ]
 
+  const extendedSlides = [...slides, slides[0]];
+
+
+  useEffect(() => {
+    if (current === slides.length) {
+        setTimeout(() => {
+            setIsTransitioning(false); // Disable transition to jump instantly
+            console.log("hello bhai")
+            setcurrent(0);
+        }, 1000); // Wait for transition to finish before resetting
+    } else {
+        setIsTransitioning(true);
+    }
+}, [current]);
   useEffect(() => {
     const interval = setInterval(() => {
-        setcurrent((prev) => (prev === 3 ? 0 : prev + 1)); // Loop from 0 to 4
-    }, 3000); // Change slide every 3 seconds
+      setcurrent((prev) => (prev + 1) );
+    }, 3000); // Change every 3 seconds
 
-    return () => clearInterval(interval); // Cleanup interval on unmount
+    return () => clearInterval(interval);
 }, []);
 
   useEffect(() => {
@@ -167,8 +182,8 @@ const fullConversation = ecommerceContext + "\n" + conversationHistory + "\n" + 
         <div className="relative top-0 z-[0] min-h-screen w-[100vw] bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]">
           {/* <Navbar /> */}
           <div className="      overflow-hidden text-black w-[82vw] m-auto rounded-md flex  object-fill  "  >
-            <div className="flex transition-all ease-in-out duration-1000" style={{ transform: `translateX(-${current * 82}vw)` }}>
-              {slides.map((slide, i) => (
+            <div className={`flex ${isTransitioning ? "transition-transform duration-1000" : "transition-transform duration-0"}`} style={{ transform: `translateX(-${current * 82}vw)` }}>
+              {extendedSlides.map((slide, i) => (
                 <div key={i} className=" w-[82vw] " >
                   <div className="w-[82vw] relative z-0">
                     <img className="w-full object-cover overflow-hidden  min-h-[15vh]  max-h-[30vh]" src={slide.img} alt="" />
@@ -188,8 +203,8 @@ const fullConversation = ecommerceContext + "\n" + conversationHistory + "\n" + 
           </div>
           <div className="absolute m-auto left-[42vw] sm:left-[47vw] flex gap-4">
             {slides.map((slide, index) => (
-              <div key={index} className={`w-3 h-3 rounded-full ring-1 ring-gray-600 cursor-pointer flex items-center justify-center ${current === index ? "scale-150" : ""}`} onClick={() => setcurrent(index)}>
-                {current === index && (
+              <div key={index} className={`w-3 h-3 rounded-full ring-1 ring-gray-600 cursor-pointer flex items-center justify-center ${current % slides.length === index  ? "scale-150" : ""}`} onClick={() => setcurrent(index)}>
+                {current % slides.length === index && (
                   <div className="w-[6px] h-[6px] bg-gray-600 cursor-pointer rounded-full"></div>
                 )}
               </div>

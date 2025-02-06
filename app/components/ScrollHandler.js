@@ -5,13 +5,13 @@ import { usePathname } from "next/navigation"; // Works for both App Router and 
 
 const ScrollHandler = () => {
     const pathname = usePathname();
-    console.log(pathname) // Get the current page route
+    // console.log(pathname) // Get the current page route
 
     useEffect(() => {
         if (typeof window !== "undefined") {
             setTimeout(() => {
                 window.scrollTo(0, 0);
-                console.log("scroll to top")
+                // console.log("scroll to top")
             }, 10); // Small delay to ensure scroll resets
         }
     }, [pathname]); // Runs whenever the route changes
