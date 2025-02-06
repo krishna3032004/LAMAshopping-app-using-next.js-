@@ -9,8 +9,10 @@ const ScrollHandler = () => {
 
     useEffect(() => {
         if (typeof window !== "undefined") {
-            window.scrollTo(0, 0); // Force scroll to top when the route changes
-            console.log("scroll to top")
+            setTimeout(() => {
+                window.scrollTo(0, 0);
+                console.log("scroll to top")
+            }, 10); // Small delay to ensure scroll resets
         }
     }, [pathname]); // Runs whenever the route changes
 
