@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
         // className={inter.className }
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        
+        <ScrollHandler />
         <Navbar/>
         <ScrollHandler />
         {children}
