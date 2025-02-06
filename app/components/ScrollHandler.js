@@ -6,6 +6,8 @@ const ScrollHandler = () => {
     const router = useRouter();
 
     useEffect(() => {
+        if (typeof window === "undefined") return; // Prevent running on the server
+
         let scrollPositions = {};
 
         const saveScrollPosition = (url) => {
@@ -14,7 +16,7 @@ const ScrollHandler = () => {
 
         const restoreScrollPosition = (url) => {
             if (scrollPositions[url] !== undefined) {
-                window.scrollTo(0, scrollPositions[url]); // Restore scroll position
+                window.scrollTo(0, scrollPositions[url]); // Restore previous scroll position
             } else {
                 window.scrollTo(0, 0); // Default to top if no saved position
             }
