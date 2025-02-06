@@ -179,7 +179,7 @@ const fullConversation = ecommerceContext + "\n" + conversationHistory + "\n" + 
     <>
       {isLoading ? <div className='flex justify-center items-center pt-[38vh] pb-[47vh]'><video className='max-w-[5vh]' src="https://cdnl.iconscout.com/lottie/free/preview/free-loading-animation-download-in-lottie-json-gif-static-svg-file-formats--refresh-reload-processing-load-user-interface-animations-4282536.mp4" autoPlay="autoplay" muted loop="loop" type="video/mp4"></video></div>
         :
-        <div className="relative top-0 z-[0] min-h-screen w-[100vw] bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]">
+        <div onClick={() => setischatopen(false)} className="relative top-0 z-[0] min-h-screen w-[100vw] bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]">
           {/* <Navbar /> */}
           <div className="      overflow-hidden text-black w-[82vw] m-auto rounded-md flex  object-fill  "  >
             <div className={`flex ${isTransitioning ? "transition-transform duration-1000" : "transition-transform duration-0"}`} style={{ transform: `translateX(-${current * 82}vw)` }}>
