@@ -8,26 +8,14 @@ const ScrollHandler = () => {
     useEffect(() => {
         if (typeof window === "undefined") return; // Prevent running on the server
 
-        let scrollPositions = {};
-
-        const saveScrollPosition = (url) => {
-            scrollPositions[url] = window.scrollY; // Save scroll position before navigation
+        const handleRouteChange = () => {
+            window.scrollTo(0, 0); // Always scroll to top when a new page is loaded
         };
 
-        const restoreScrollPosition = (url) => {
-            if (scrollPositions[url] !== undefined) {
-                window.scrollTo(0, scrollPositions[url]); // Restore previous scroll position
-            } else {
-                window.scrollTo(0, 0); // Default to top if no saved position
-            }
-        };
-
-        router.events.on("routeChangeStart", saveScrollPosition);
-        router.events.on("routeChangeComplete", restoreScrollPosition);
+        router.events.on("routeChangeComplete", handleRouteChange);
 
         return () => {
-            router.events.off("routeChangeStart", saveScrollPosition);
-            router.events.off("routeChangeComplete", restoreScrollPosition);
+            router.events.off("routeChangeComplete", handleRouteChange);
         };
     }, [router]);
 
