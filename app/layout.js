@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import SessionWrapper from "./components/SessionWrapper";
+import ScrollHandler from "./components/scrollHandler";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -31,6 +32,7 @@ export default function RootLayout({ children }) {
         // className={inter.className }
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <ScrollHandler />
         <Navbar/>
         {children}
         {/* <div className="absolute"> */}
