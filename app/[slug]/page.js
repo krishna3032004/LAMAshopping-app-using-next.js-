@@ -270,7 +270,7 @@ const Page = ({ params }) => {
                             <div className=" text-xs text-zinc-400">Cozy knitwear essential.</div>
                           </div>
                         </div></Link>
-                        <div className='w-[5vh] h-[5vh] absolute left-[17vw] top-[0vh]  lg:left-[12vw] lg:top-[1vh]  flex justify-center items-center  rounded-full'>
+                        <div className='w-[7vh] h-[7vh] absolute left-[17vw] top-[0vh]  lg:left-[12vw] lg:top-[1vh]  flex justify-center items-center  rounded-full'>
                           <svg xmlns="http://www.w3.org/2000/svg" onClick={async () => {
                             if (session) {
                               await handleClick(produc._id, produc.wishlist)

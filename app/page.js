@@ -124,16 +124,22 @@ const fullConversation = ecommerceContext + "\n" + conversationHistory + "\n" + 
 }, []);
 
   useEffect(() => {
-    if (status === "loading") {
-      // Wait until session is loaded
-      setIsLoading(true)
-
-      // return;
-    } else {
+    
       getfeatured()
 
-    }
-  }, [status])
+    
+  }, [])
+  // useEffect(() => {
+  //   if (status === "loading") {
+  //     // Wait until session is loaded
+  //     setIsLoading(true)
+
+  //     // return;
+  //   } else {
+  //     getfeatured()
+
+  //   }
+  // }, [status])
 
 
  

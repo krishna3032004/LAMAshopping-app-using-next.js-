@@ -41,6 +41,7 @@ const Navbar = () => {
     setform(c)
     let z = c.username.split(" ")[0]
     setname(z)
+    
     let a = await fetchCart(session.user.email)
     let b = JSON.parse(a);
 

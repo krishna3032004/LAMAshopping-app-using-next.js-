@@ -169,8 +169,9 @@ const Page = ({ params }) => {
   }
   const buyit = async () => {
     toast.dismiss();
-    setIsLoading(true)
+    
     if (session) {
+      setIsLoading(true)
       let a = await putcheckout(session.user.email, params.slug1, count)
 
       if (a) {
