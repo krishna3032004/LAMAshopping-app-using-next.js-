@@ -4,7 +4,7 @@ This is a fully functional e-commerce web application built with Next.js, featur
 
 ## Deployed Application
 
-[Link to your deployed application](Your Vercel Deployment Link)  
+[Link to your deployed application](https://lamashopping-psi.vercel.app/)  
 
 ## Features
 
@@ -78,7 +78,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 1. Clone the repository:
 ```bash
-git clone <repository_url>
+git clone https://github.com/krishna3032004/LAMAshopping-app-using-next.js-.git
 ```
 
 2. Install dependencies:
