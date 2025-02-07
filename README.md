@@ -1,3 +1,74 @@
+# E-commerce Project with Next.js
+
+This is a full-fledged e-commerce web application built with Next.js, featuring comprehensive authentication, user management, product browsing, shopping cart functionality, secure payment processing, and more.
+
+## Features
+
+* **Authentication:**
+    * Google authentication
+    * GitHub authentication
+    * Email/password authentication
+    * Forgot password with email verification
+    * New user registration with email verification
+* **User Profile:**
+    * View and edit user information (username, email)
+    * Wishlist
+    * Order history
+    * Notifications
+    * Logout
+* **Product Browsing:**
+    * Browse products by category, etc. (implementation details can be added here)
+    * "Buy Now" for single-item purchase
+    * "Add to Cart" for multiple-item purchase
+* **Shopping Cart:**
+    * Add/remove products
+    * Adjust quantities
+* **Payment:**
+    * Razorpay integration for secure payment processing
+* **Reviews:**
+    * Leave reviews on purchased products
+    * Review links sent to registered email
+* **Chatbot:**
+    * Integrated chatbot powered by Gemini
+* **Order Tracking:**
+    * Basic order listing (future enhancement: detailed order tracking)
+
+## Technologies Used
+
+* Next.js
+* React
+* NextAuth.js (for authentication)
+* Razorpay
+* Gemini (for chatbot)
+* MongoDB (database)
+* Nodemailer (for sending emails)
+
+## Deployment
+
+* Deployed on Vercel
+
+## Environment Variables
+
+Make sure to set the following environment variables in your `.env.local` file:
+
+```bash
+GOOGLE_CLIENT_ID=<your_google_client_id>
+GOOGLE_CLIENT_SECRET=<your_google_client_secret>
+Github_ID=<your_github_client_id>
+Github_SECRET=<your_github_client_secret>
+EMAIL_USER=<your_email_address>
+EMAIL_PASS=<your_email_password>
+NEXT_PUBLIC_KEY_ID=<your_razorpay_key_id>
+NEXT_PUBLIC_KEY_SECRET=<your_razorpay_key_secret>
+NEXT_PUBLIC_URL2=<your_app_url>
+DATABASE_URL=<your_mongodb_connection_string>
+NEXT_PUBLIC_GEMINI_API_KEY=<your_gemini_api_key>
+NEXTAUTH_SECRET=<generate_a_random_secret>
+'''
+
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -36,127 +107,4 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 
-
-
-E-commerce Website (Next.js)
-
-Overview
-
-This is a fully functional E-commerce website built using Next.js with a robust authentication system, product purchasing options, payment integration, and chatbot support.
-
-Features
-
-Authentication
-
-Login/Signup with Google, GitHub, and Email & Password
-
-Email Verification via OTP (for registration & password reset)
-
-Session-based authentication using NextAuth.js
-
-User Account Management
-
-View & edit Username, Email
-
-Wishlist: Save favorite products
-
-Orders: View past purchases (No tracking implemented)
-
-Notifications: Get updates on purchases
-
-Logout option available
-
-Product Purchasing
-
-Buy Now: Direct purchase of a product
-
-Add to Cart: Add multiple products & checkout later
-
-Reviews: Submit product reviews (only for purchased items, via email link)
-
-Payments
-
-Integrated with Razorpay for seamless checkout
-
-Chatbot
-
-AI chatbot powered by Google Gemini API for user assistance
-
-Tech Stack
-
-Frontend: Next.js, React.js, Tailwind CSS
-
-Backend: Next.js API Routes
-
-Database: MongoDB (MongoDB Atlas)
-
-Authentication: NextAuth.js
-
-Payments: Razorpay
-
-AI Chatbot: Google Gemini API
-
-Deployment: Vercel
-
-Environment Variables
-
-Create a .env.local file and add the following variables:
-
-GOOGLE_CLIENT_ID=
-GOOGLE_CLIENT_SECRET=
-GITHUB_ID=
-GITHUB_SECRET=
-EMAIL_USER=
-EMAIL_PASS=
-NEXT_PUBLIC_KEY_ID=
-NEXT_PUBLIC_KEY_SECRET=
-NEXT_PUBLIC_URL2=
-DATABASE_URL=
-NEXT_PUBLIC_GEMINI_API_KEY=
-NEXTAUTH_SECRET=
-
-Deployment
-
-Clone the repository:
-
-git clone https://github.com/yourusername/your-repo.git
-cd your-repo
-
-Install dependencies:
-
-npm install
-
-Set up environment variables (.env.local as shown above)
-
-Run the development server:
-
-npm run dev
-
-Deploy on Vercel:
-
-Push your project to GitHub
-
-Connect it with Vercel
-
-Add environment variables in Vercel's dashboard
-
-How to Use
-
-Signup/Login using Google, GitHub, or email.
-
-Browse products and either "Buy Now" or "Add to Cart".
-
-Proceed to Checkout and complete payment via Razorpay.
-
-Access Your Orders, Wishlist, and Notifications in the profile.
-
-Use the AI Chatbot for assistance.
-
-Contributing
-
-Feel free to fork this project and submit pull requests!
-
-License
-
-This project is open-source under the MIT License.
 
