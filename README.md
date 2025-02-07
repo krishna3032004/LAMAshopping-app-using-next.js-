@@ -78,7 +78,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/krishna3032004/LAMAshopping-app-using-next.js-.git
+      git clone https://github.com/krishna3032004/LAMAshopping-app-using-next.js-.git
 ```
 
 2. Install dependencies:
