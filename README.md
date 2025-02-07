@@ -77,20 +77,20 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## Getting Started
 
 1. Clone the repository:
-```sh
-git clone https://github.com/krishna3032004/LAMAshopping-app-using-next.js-.git
-```
+    ```sh
+    git clone https://github.com/krishna3032004/LAMAshopping-app-using-next.js-.git
+    ```
 
 2. Install dependencies:
-```sh
-npm install  # or yarn install
-```
+    ```sh
+    npm install  # or yarn install
+    ```
 
 3. Set environment variables: Create the .env.local file as described above.
 4. Run the development server:
-```sh
-npm run dev  # or yarn dev
-```
+    ```sh
+    npm run dev  # or yarn dev
+    ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
