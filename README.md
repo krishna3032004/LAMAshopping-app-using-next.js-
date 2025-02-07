@@ -1,6 +1,10 @@
 # E-commerce Project with Next.js
 
-This is a full-fledged e-commerce web application built with Next.js, featuring comprehensive authentication, user management, product browsing, shopping cart functionality, secure payment processing, and more.
+This is a fully functional e-commerce web application built with Next.js, featuring comprehensive authentication, user management, product browsing, shopping cart functionality, secure payment processing, and more.
+
+## Deployed Application
+
+[Link to your deployed application](Your Vercel Deployment Link)  
 
 ## Features
 
@@ -11,13 +15,13 @@ This is a full-fledged e-commerce web application built with Next.js, featuring 
     * Forgot password with email verification
     * New user registration with email verification
 * **User Profile:**
-    * View and edit user information (username, email)
+    * View and edit user information (username,gender, email)
     * Wishlist
     * Order history
     * Notifications
     * Logout
 * **Product Browsing:**
-    * Browse products by category, etc. (implementation details can be added here)
+    * Browse products by category, etc.
     * "Buy Now" for single-item purchase
     * "Add to Cart" for multiple-item purchase
 * **Shopping Cart:**
@@ -30,8 +34,7 @@ This is a full-fledged e-commerce web application built with Next.js, featuring 
     * Review links sent to registered email
 * **Chatbot:**
     * Integrated chatbot powered by Gemini
-* **Order Tracking:**
-    * Basic order listing (future enhancement: detailed order tracking)
+
 
 ## Technologies Used
 
@@ -64,7 +67,7 @@ NEXT_PUBLIC_URL2=<your_app_url>
 DATABASE_URL=<your_mongodb_connection_string>
 NEXT_PUBLIC_GEMINI_API_KEY=<your_gemini_api_key>
 NEXTAUTH_SECRET=<generate_a_random_secret>
-'''
+```
 
 
 
@@ -73,16 +76,20 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
-
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository_url>
+```
+
+2. Install dependencies:
+```bash
+npm install  # or yarn install
+```
+
+3. Set environment variables: Create the .env.local file as described above.
+4. Run the development server:
+```bash
+npm run dev  # or yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -90,6 +97,17 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
+## How to Use
+
+1.  **Signup/Login:** Use Google, GitHub, or email to create an account or log in.
+2.  **Browse Products:** Explore the available products.
+3.  **Buy Now/Add to Cart:** Click "Buy Now" for immediate purchase or "Add to Cart" for multiple items.
+4.  **Shopping Cart:** Manage the items in your cart, adjust quantities, and proceed to checkout.
+5.  **Checkout:** Review your order and proceed to payment.
+6.  **Payment:** Complete the purchase using Razorpay.
+7.  **User Profile:** Access your order history, wishlist, notifications, and edit your profile.
+8.  **Chatbot:** Use the Gemini-powered chatbot for assistance.
 
 ## Learn More
 
