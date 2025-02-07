@@ -4,7 +4,7 @@ This is a fully functional e-commerce web application built with Next.js, featur
 
 ## Deployed Application
 
-[Link to your deployed application](https://lamashopping-psi.vercel.app/)  
+[LAMA Shopping App](https://lamashopping-psi.vercel.app/)  
 
 ## Features
 
