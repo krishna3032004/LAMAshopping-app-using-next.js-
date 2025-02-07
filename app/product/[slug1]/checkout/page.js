@@ -154,7 +154,7 @@ const Page = ({ params }) => {
                 "key_id": process.env.NEXT_PUBLIC_KEY_ID, // Razorpay Key ID
                 "amount": amount2 * 100, // Convert amount to paisa (INR subunit)
                 "currency": "INR",
-                "name": "Get Me A Coffee", // Business name
+                "name": "Lamashopping", // Business name
                 "description": "Test Transaction",
                 "image": "https://example.com/your_logo",
                 "order_id": orderID, // Order ID from backend response

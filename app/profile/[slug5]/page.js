@@ -209,7 +209,7 @@ const Page = ({ params }) => {
                         <img src="https://static-assets-web.flixcart.com/fk-p-linchpin-web/fk-cp-zion/img/shield_b33c0c.svg" alt="" />
                         Safe and Secure Payments.Easy returns.100% Authentic products.</div> */}
                     </div>
-                    <div className='w-full md:w-[59vw] min-h-[84.5vh] mb-2 rounded-lg shadow-slate-300 bg-white'>
+                    <div onClick={()=> setburger(false)} className='w-full md:w-[59vw] min-h-[84.5vh] mb-2 rounded-lg shadow-slate-300 bg-white'>
                         <div className='flex justify-between items-center '>
                             <div className='text-lg pl-[2.5vw] font-semibold p-[1vw] border-b-[0.2vh] border-gray-200 py-[3vh]'>{info}</div>
                             {/* <div onClick={() => setburger(!burger)} className='bg-red-400 cursor-pointer'>home</div> */}
