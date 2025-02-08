@@ -159,13 +159,13 @@ const Page = ({ params }) => {
       setcart(b)
     }
     setproduct(a)
+    setIsLoading(false)
     if (a.quantity === 0) {
       setcount(0)
     }
     // let n =JSON.parse(a.review);
     a.review.reverse()
     setreviews(a.review)
-    setIsLoading(false)
   }
   const buyit = async () => {
     toast.dismiss();
