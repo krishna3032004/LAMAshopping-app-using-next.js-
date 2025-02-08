@@ -163,13 +163,13 @@ const fullConversation = ecommerceContext + "\n" + conversationHistory + "\n" + 
  
 
   const getfeatured = async () => {
-    setIsLoading(false)
+    setIsLoading(true)
     let b = await fetchfeatured()
     // let a = b.toObject({ flattenObjectIds: true })
     let a = JSON.parse(b);
 
     setfeatured(a)
-    // setIsLoading(false)
+    setIsLoading(false)
   }
 
   const reloadPage = (url) => {
