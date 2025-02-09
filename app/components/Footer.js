@@ -5,9 +5,9 @@ const Footer = () => {
     <div className='relative z-30 bottom-0  '>
       <div className=" flex  w-[100vw] h-[50vh]    items-center justify-around  bg-slate-300 text-black sm:text-xs text-[8px]">
         <div className="w-[10vw] sm:w-[15vw] flex flex-col gap-[1vw]">
-          <div className="font-bold h-8 sm:h-14">LAMA</div>
+          <div className="font-bold h-8 sm:h-14">Opulenza</div>
           <div>3252 Winding way,Central plaza,Willowbrook, CA 90210, United States</div>
-          <div className="font-semibold">hello@lama.dev</div>
+          <div className="font-semibold">hello@Opulenza.dev</div>
           <div className="font-semibold">+1 234 567 890</div>
           <div>home</div>
         </div>

@@ -4,7 +4,7 @@ This is a fully functional e-commerce web application built with Next.js, featur
 
 ## Deployed Application
 
-[LAMA Shopping App](https://lamashopping-psi.vercel.app/)  
+[Opulenza Shopping App](https://Opulenza-psi.vercel.app/)  
 
 ## Features
 
@@ -78,7 +78,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/krishna3032004/LAMAshopping-app-using-next.js-.git
+    git clone https://github.com/krishna3032004/Opulenza-app-using-next.js-.git
     ```
 
 2. Install dependencies:
