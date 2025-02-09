@@ -67,18 +67,16 @@ const Navbar = () => {
     <div className='sticky top-0 z-10  bg-white bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]' >
 
       <div className="navbar flex border-1 sticky z-10 top-0 text-black items-center justify-around sm:justify-center h-[8vh] lg:h-[10vh]">
-        <div className="flex gap-7 pr-[10vw] pl-[5vw] sm:pl-[0vw] text-center">
-          {/* <Link href={'/'}><div className="sm:text-lg text-base font-semibold">LAMA</div></Link> */}
-          <Link href={'/'}><div className="md:px-4 py-1 px-3 text-lg md:text-2xl font-extrabold text-white bg-gradient-to-r from-orange-500 to-red-500 rounded-lg shadow-lg">LAMA</div></Link>
-          {/* <div className="flex gap-[1.5vw]">
-            <Link href={'/'}><div>Home</div></Link>
-            <Link href={"/shopify"}><div>Shop</div></Link>
-            <Link href={'/deals'}><div>Deals</div></Link>
-            <Link href={"/about"}><div>About</div></Link>
-            // <Link href={'/contact'}><div>Contact</div></Link>
-             <div onClick={() => signOut()}>signout</div> 
-          </div> */}
+        <div className="flex gap-7 mr-[10vw] pl-[5vw] sm:pl-[0vw] text-center ">
+          <Link href={'/'}><div className="md:px-4 py-1 px-3 md:text-3xl text-lg font-serif text-[#222] tracking-wide">Opulenza</div></Link>
+          {/* <Link href={'/'}><div className="md:px-4 py-1 px-3 text-lg md:text-2xl font-extrabold text-white bg-gradient-to-r from-orange-500 to-red-500 rounded-lg shadow-lg">LAMA</div></Link> */}
+          
         </div>
+        {/* <div className="flex items-center justify-center">
+      <h1 className="text-5xl font-serif text-[#222] tracking-wide">
+        Opulenza
+      </h1>
+    </div> */}
         {/* <div className="flex  items-center "> */}
           <div className='relative sm:block hidden'>
             <input  value={search} onChange={handleChange} onKeyDown={handleKeyDown} className=" shadow-sm shadow-slate-400 bg-slate-200 outline-none h-8 sm:h-10 w-[40vw]  pl-[3.3vw]  relative inline-flex items-center justify-center pr-[1vw] p-0.5 my-2 md:my-1 me-2 overflow-hidden text-sm rounded-xl" type="text" placeholder="Search for Products, Brands and More" />
@@ -97,7 +95,7 @@ const Navbar = () => {
                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4" />
               </svg>}
             {log && !session &&
-              <div className='absolute z-10 sm:top-[8vh] top-[6vh] text-white sm:right-[21vw] flex flex-col items-center'>
+              <div className='absolute z-10 sm:top-[8vh] top-[6vh] text-white sm:right-[17vw] flex flex-col items-center'>
                 <div className='border-x-8 border-b-8 border-x-transparent border-t-transparent border-b-blue-500 w-0 h-0'></div>
                 <div className=' bg-blue-500 rounded-sm text-lg px-5 py-2 '>Login</div>
               </div>}
